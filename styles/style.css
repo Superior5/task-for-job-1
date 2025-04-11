@@ -1,22 +1,94 @@
 .page {
-  font-family: "Plata", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #222;
   color: #fff;
-  inline-size: 1920px;
 }
+
+a {
+  text-decoration: none;
+}
+.section-1 {
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+}
+.section-1_info-block {
+  min-width: 100%;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.section-1_illustration-block {
+  display: none;
+  width: 100%;
+  background-image: url('../image/header-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.section-1 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-bottom: 0px;
+}
+header nav ul {
+  display: flex;
+  gap: 10px;
+}
+
+header li:not(:last-child)::after {
+  content: '/';
+  position: absolute;
+  margin-left: 3px;
+  margin-top: -1px;
+  font-size: 20px;
+  color: orangered;
+}
+header nav a {
+  font-style: italic;
+  letter-spacing: 0.1em; 
+  font-size: 13px;
+  white-space: nowrap;
+  text-transform: uppercase;
+} 
 
 .logo {
-  display: block;
-  inline-size: 256px;
-  font-family: "Plata", Arial, sans-serif;
+  font-family: "Prata", serif;
   font-size: 36px;
-  letter-spacing: 3%;
-  line-height: 150%;
-  text-decoration: none;
-  color: inherit;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
-
+.info-block_wrapper {
+  background-image: url('../image/header-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.info-block {
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #0000004a;
+}
+.info-block_title {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-size: 40px;
+}
+.info-block_notice {
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 22px;
+}
 .header {
   display: flex;
   width: 100%;
@@ -65,6 +137,100 @@
   margin-block-start: 20px;
 }
 
+.info-block_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.info-block_list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px
+}
+
+.info-block_list li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 16px;
+}
+.info-block_list li img {
+  width: 20px;
+}
+.info-block_list li p {
+  display: flex;
+  align-items: center;
+}
+.info-block_list li span {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-right: 8px;
+  margin-left: 5px;
+}
+
+.info-block_footer button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-block_footer button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-block_footer button:active {
+  background-color: #e0e0e0;
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-block_footer button:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+.info-block_footer button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  border-radius: 100%;
+  transform: translate(-50%, -50%) scale(1, 1);
+  transition: all 0.5s ease;
+}
+
+.info-block_footer button:hover::after {
+  width: 200px;
+  height: 200px;
+  opacity: 0.2;
+  transform: translate(-50%, -50%) scale(1, 1);
+}
+
 .hero__title span {
   display: block;
 }
@@ -74,16 +240,6 @@
   margin-inline-start: 50px;
 }
 
-.hero__item::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: -55px;
-  width: 39px;
-  height: 37px;
-  background-image: url(/image/check.svg);
-  background-repeat: no-repeat;
-}
 
 .hero__item {
   position: relative;
@@ -216,6 +372,7 @@
 .input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
+  color: #000;
   line-height: 150%;
   padding: 14px 14px;
 }
@@ -288,3 +445,102 @@
   width: 180px;
   height: 78px;
 }
+
+
+@media screen and (min-width: 480px) {
+  .section-1 {
+    padding: 0 60px;
+  }
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  
+}
+
+
+@media screen and (min-width: 768px) {
+  .section-1 header {
+    flex-direction: row;
+    padding-bottom: 40px;
+  }
+  header nav ul {
+    gap: 30px;
+  }
+  header nav a {
+    font-size: 16px;
+  }
+  header li:not(:last-child)::after {
+    content: '';
+  }
+  .info-block {
+    margin-top: 150px;
+    margin-left: 0;
+    margin-right: 0;
+    gap: 55px;
+  }
+  .info-block_title {
+    font-size: 80px;
+  }
+  .info-block_notice {
+    font-size: 50px;
+  }
+
+  .info-block_list {
+    gap: 35px;
+  }
+  .info-block_list li {
+    gap: 18px;
+    font-size: 24px;
+  }
+  .info-block_list li img {
+    width: 38px;
+  }
+  .info-block_list li span {
+    margin-right: 15px;
+    margin-left: 7px;
+    font-size: 40px;
+  }
+  .info-block_footer button {
+    width: auto;
+    padding: 35px 50px;
+    font-size: 24px;
+  }
+  
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+
+}
+@media screen and (max-width: 1280px) {
+
+}
+
+@media screen and (min-width: 1281px) {
+  .section-1_illustration-block {
+    display: block;
+  }
+  .section-1_info-block {
+    min-width: 60%;
+    gap: 89px;
+  }
+  .section-1 {
+    padding: 0;
+    padding-left: 160px;
+  }
+  .info-block_wrapper {
+    background-image: none;
+  }
+  .info-block {
+    padding: 0;
+    border-radius: 0px;
+    background-color: transparent;
+  }
+
+}
+
+@media screen and (min-width: 1441px) {
+
+}
+
