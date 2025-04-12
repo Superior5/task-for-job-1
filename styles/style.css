@@ -54,8 +54,15 @@ header nav a {
   font-size: 13px;
   white-space: nowrap;
   text-transform: uppercase;
+  position: relative;
+  top: 0px;
+  border-bottom: 3px transparent solid;
+  transition: all .3s ease;
 } 
-
+header nav li:hover a {
+  border-bottom: 3px orangered solid;
+  top: -10px;
+}
 .logo {
   font-family: "Prata", serif;
   font-size: 36px;
@@ -67,6 +74,7 @@ header nav a {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
+  background-position-y: 65px;
 }
 .info-block {
   max-width: 540px;
@@ -97,6 +105,245 @@ header nav a {
   position: fixed;
   top: 0;
   background-color: #222;
+  z-index: 1;
+}
+
+/* Section 2 */
+.section-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0px;
+  background: #282829;
+}
+.section-2_right-illustration, .section-2_left-illustration {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.section-2_right-illustration {
+  background-image: url('../image/illustration/section-2_right.png');
+
+}
+.section-2_left-illustration {
+  background-image: url('../image/illustration/section-2_left.png');
+}
+.section-2_info-block {
+  width: auto;
+  padding: 0 30px 30px 30px;
+}
+.section-2_info-block ul {
+  padding-bottom: 54px;
+  padding-top: 54px;
+}
+.section-2_info-block ul li p {
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: 0%;
+}
+.section-2_info-block ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border-bottom: 1px #55565A solid;
+  padding: 40px 0;
+}
+.section-2_info-block ul li:first-child {
+ padding-top: 0;
+}
+.section-2_info-block ul li:last-child {
+  border: none;
+  padding-bottom: 0;
+}
+
+
+/* Section 3 */
+
+.section-3 {
+  background: #282829;
+  padding-bottom: 100px;
+}
+.section-3_block {
+  position: relative;
+  margin: 0 20px;
+  padding: 20px 30px;
+  background: #FFFFFF;
+  color: #38535D;
+  border-radius: 30px;
+}
+.section-3_block img {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 140px;
+  height: 725px;
+}
+.section-3_block-form {
+  position: relative;
+  z-index: 1;
+  max-width: 570px;
+}
+.section-3_block-form h3 {
+  font-family: Prata;
+  font-weight: 400;
+  font-size: 34px;
+}
+
+.section-3 .input-field {
+  /* Базовые стили */
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 2px solid #D6D6D6;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  color: #333;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  outline: none;
+}
+.section-3 .input-field:nth-child(2) {
+  margin-bottom: 0;
+}
+
+.section-3 .input-field::placeholder {
+  color: #A0A0A0;
+  opacity: 1;
+}
+
+.section-3 .input-field:focus {
+  border-color: #6C63FF;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.section-3 .input-field:hover {
+  border-color: #B8B8B8;
+}
+
+.section-3 .input-field:invalid:not(:placeholder-shown) {
+  border-color: #FF6B6B;
+}
+
+.section-3 .input-field:not(:placeholder-shown) {
+  border-color: #D6D6D6;
+  background-color: #F9F9F9;
+}
+
+.keeper {
+  display: inline-block;
+  height: 26.44px;
+  width: 100%;
+}
+.error-message {
+  display: none;
+  color: #FF6B6B;
+  font-size: 13px;
+  margin: 5px 0 10px 2px;
+  font-family: 'Arial', sans-serif;
+  animation: fadeIn 0.3s ease;
+}
+.input-field:invalid:not(:placeholder-shown) ~ .error-message {
+  display: block;
+}
+.input-field:invalid:not(:placeholder-shown) ~ .keeper {
+  display: none;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.form-group_wrapper {
+  margin-top: 45px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Arial', sans-serif;
+  font-size: 19px;
+  color: #090909;
+}
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox-custom {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #D6D6D6;
+  border-radius: 4px;
+  background-color: white;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.checkbox-label {
+  margin-left: 14px; 
+}
+.checkbox-input:checked ~ .checkbox-custom {
+  background-color: #6C63FF;
+  border-color: #6C63FF;
+}
+.checkbox-input:checked ~ .checkbox-custom::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox-input:focus ~ .checkbox-custom {
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+.checkbox-input:hover:not(:checked) ~ .checkbox-custom {
+  border-color: #B8B8B8;
+}
+.checkbox-input:disabled ~ .checkbox-custom {
+  background-color: #F5F5F5;
+  border-color: #E0E0E0;
+}
+.checkbox-input:disabled ~ .checkbox-label {
+  color: #A0A0A0;
+}
+
+
+.section-3_illustration {
+  width: 40%;
+  height: 100%;
+}
+
+.section-3_block {
+  position: relative;
+  background-image: url('../image/illustration/backround-person.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.section-3_block::before {
+  content: '';
+  position: absolute;
+  border-radius: 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(174 183 255 / 44%);
+  backdrop-filter: blur(2px); 
   z-index: 1;
 }
 
@@ -174,7 +421,8 @@ header nav a {
   margin-left: 5px;
 }
 
-.info-block_footer button {
+
+.info-block_footer button, .section-2_info-block button, .section-3 button {
   display: inline-block;
   width: 100%;
   padding: 10px 20px;
@@ -193,24 +441,24 @@ header nav a {
   overflow: hidden;
 }
 
-.info-block_footer button:hover {
+.info-block_footer button:hover, .section-2_info-block button:hover, .section-3 button:hover {
   background-color: #f0f0f0;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.info-block_footer button:active {
+.info-block_footer button:active, .section-2_info-block button:active, .section-3 button:active  {
   background-color: #e0e0e0;
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.info-block_footer button:focus {
+.info-block_footer button:focus, .section-2_info-block button:focus, .section-3 button:focus {
   outline: 2px solid #4d90fe;
   outline-offset: 2px;
 }
 
-.info-block_footer button::after {
+.info-block_footer button::after, .section-2_info-block button::after, .section-3 button::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -224,13 +472,24 @@ header nav a {
   transition: all 0.5s ease;
 }
 
-.info-block_footer button:hover::after {
+.info-block_footer button:hover::after, .section-2_info-block button:hover::after, .section-3 button:hover::after {
   width: 200px;
   height: 200px;
   opacity: 0.2;
   transform: translate(-50%, -50%) scale(1, 1);
 }
+.section-2_info-block button, .section-3 button {
+  padding: 32px 0;
+}
 
+.section-3 button {
+  margin-top: 26px;
+  background: #282829;
+  color: #FFFFFF;
+}
+.section-3 button:hover {
+  color: #282829;
+}
 .hero__title span {
   display: block;
 }
@@ -462,6 +721,7 @@ header nav a {
 @media screen and (min-width: 768px) {
   .section-1 header {
     flex-direction: row;
+    gap: 30px;
     padding-bottom: 40px;
   }
   header nav ul {
@@ -506,7 +766,16 @@ header nav a {
     padding: 35px 50px;
     font-size: 24px;
   }
-  
+  .section-3_block {
+    margin: 0 60px;
+    padding: 35px 65px;
+  }
+  .section-3_block-form h3 {
+    font-size: 54px;
+  }
+  .section-3_block::before {
+    content: none;
+  }
 }
 
 
@@ -522,6 +791,7 @@ header nav a {
     display: block;
   }
   .section-1_info-block {
+    padding-right: 160px;
     min-width: 60%;
     gap: 89px;
   }
@@ -537,10 +807,35 @@ header nav a {
     border-radius: 0px;
     background-color: transparent;
   }
+  .section-2 {
+    flex-direction: row;
+    align-items: normal;
+  }
+  .section-2_info-block {
+    width: calc(100%/3);
+    padding: 0 54px 0px 54px;
 
+  }
+  .section-2_right-illustration, .section-2_left-illustration {
+    width: calc(100%/3);
+    height: auto;
+  }
+  .section-2_info-block ul li p {
+    font-size: 24px;
+  }
+  .section-3_block img {
+    display: inline;
+  }
+
+  .section-3_block {
+    margin: 0 160px;
+    padding: 70px 135px;
+  }
 }
 
 @media screen and (min-width: 1441px) {
-
+  .section-3_block {
+    background-size: contain;
+  }
 }
 
